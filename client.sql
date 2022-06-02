@@ -12,9 +12,6 @@ SHOW DATABASES.
 
 CREATE DATABASE ventes;
 
+-- Utiliser une base de données
 
-
--- Création de la table client
-
-
-CREATE TABLE client
+USE ventes
