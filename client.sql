@@ -8,10 +8,14 @@
 
 SHOW DATABASES.
 
--- Création de la base de donnée
+-- Création d'une table
+-- id est un entier non null auto incrémenté de 1 c'est une clé primaire
+-- Unique pour une contrainte d'unicité
 
-CREATE DATABASE ventes;
-
--- Utiliser une base de données
-
-USE ventes
+CREATE TABLE clients(
+  id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nom VARCHAR(50) NOT NULL,
+  prenon VARCHAR(50) NOT NULL,
+  email VARCHAR(70),
+  telephone VARCHAR(20) NOT NULL
+);
