@@ -19,3 +19,8 @@ CREATE TABLE clients(
   email VARCHAR(70),
   telephone VARCHAR(20) NOT NULL
 );
+
+-- Voir une description de ma table
+
+DESC clients;
+DESCRIBE clients;
