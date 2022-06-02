@@ -24,3 +24,6 @@ CREATE TABLE clients(
 
 DESC clients;
 DESCRIBE clients;
+
+-- Modifier la table en ajoutant une colonne
+ALTER TABLE clients ADD COLUMN postnom VARCHAR(50);
