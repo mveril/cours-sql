@@ -32,3 +32,12 @@ values ("Capgemini","Fabrice","Martin","martin@mail.com","06 56 85 84 33", "abc"
 ("M2I Formation", "Julien", "Lamard", "lamard@mail.com", "06 11 22 33 44", "abc", "xyz", "Paris", "France",1),
 ("ATOS", "Jean", "Zozor", "jzozor@mail.com", "06 09 08 07 06", "quelque part", "tre", "Bastia", "France", 1),
 ("SOPRA STRERIA", "Anthony", "Toto", "toto@mail.com", "05 61 55 33 33", "Rue de l'Humanité", "zzz", "Colomier", "France", 0);
+
+INSERT INTO orders(typePresta,designation,clientId,nbDays,unitPrice,state)
+VALUES("Formation","Angular init",2,3,1200,0),
+("Formation","React avancé",2,3,1000,2),
+("Coaching","React Techlead",1,20,900,2),
+("Coaching","Nest.js Techlead",1,50,800,1);
+
+SELECT orders.typePresta, orders.designation 
+FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="Formation" AND clients.companyName="M2I Formation";
