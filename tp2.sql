@@ -41,3 +41,17 @@ VALUES("Formation","Angular init",2,3,1200,0),
 
 SELECT orders.typePresta, orders.designation 
 FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="Formation" AND clients.companyName="M2I Formation";
+
+
+SELECT DISTINCT clients.companyName, clients.firstName,clients.lastName
+FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="Coaching";
+
+SELECT DISTINCT clients.firstName,clients.lastName, clients.phone,clients.email
+FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="Coaching" AND orders.designation="React Techlead";
+
+CREATE VIEW v_prices AS SELECT typePresta, designation, (unitPrice*nbDays) AS UHT, (unitPrice*nbDays*1.2) AS TTC, state
+FROM orders;
+
+SELECT typePresta, designation WHERE TTC>30000 AND state=2;
+
+SELECT typePresta, designation  FROM v_prices WHERE TTC>30000 AND state=2;
