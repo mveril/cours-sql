@@ -26,3 +26,9 @@ CREATE TABLE orders(
   state INTEGER(1),
   FOREIGN KEY(clientId) REFERENCES clients(id)
 );
+
+INSERT INTO clients (companyName,firstName,lastName,email,phone,address,zipCode,city,country,state)
+values ("Capgemini","Fabrice","Martin","martin@mail.com","06 56 85 84 33", "abc", "xyz","Nantes","France",0),
+("M2I Formation", "Julien", "Lamard", "lamard@mail.com", "06 11 22 33 44", "abc", "xyz", "Paris", "France",1),
+("ATOS", "Jean", "Zozor", "jzozor@mail.com", "06 09 08 07 06", "quelque part", "tre", "Bastia", "France", 1),
+("SOPRA STRERIA", "Anthony", "Toto", "toto@mail.com", "05 61 55 33 33", "Rue de l'Humanité", "zzz", "Colomier", "France", 0);
