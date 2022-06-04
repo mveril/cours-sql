@@ -1,6 +1,6 @@
-CREATE DATABASE TP2
+CREATE DATABASE TP2;
 
-USE DATABASE TP2
+USE TP2;
 
 CREATE TABLE clients(
   id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -20,7 +20,7 @@ CREATE TABLE orders(
   id integer NOT NULL AUTO_INCREMENT PRIMARY KEY,
   typePresta VARCHAR(30),
   designation VARCHAR(30),
-  client_id integer,
+  clientId integer,
   nbDays INTEGER,
   unitPrice FLOAT(5,2),
   state INTEGER(1),
@@ -49,9 +49,7 @@ FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="
 SELECT DISTINCT clients.firstName,clients.lastName, clients.phone,clients.email
 FROM clients JOIN orders ON clients.id=orders.clientId WHERE orders.typePresta="Coaching" AND orders.designation="React Techlead";
 
-CREATE VIEW v_prices AS SELECT typePresta, designation, (unitPrice*nbDays) AS UHT, (unitPrice*nbDays*1.2) AS TTC, state
+CREATE VIEW v_prices AS SELECT typePresta, designation, (unitPrice*nbDays) AS totalExcludeTaxe, (unitPrice*nbDays*1.2) AS totalWithTaxe, state
 FROM orders;
 
-SELECT typePresta, designation WHERE TTC>30000 AND state=2;
-
-SELECT typePresta, designation  FROM v_prices WHERE TTC>30000 AND state=2;
+SELECT typePresta, designation  FROM v_prices WHERE totalWithTaxe>30000 AND state=2;
