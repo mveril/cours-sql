@@ -14,6 +14,7 @@ CREATE TABLE clients(
   city VARCHAR(30),
   country VARCHAR(30),
   state INTEGER(1)
+  CHECK (state BETWEEN 0 AND 1)
 );
 
 CREATE TABLE orders(
@@ -23,7 +24,8 @@ CREATE TABLE orders(
   clientId integer,
   nbDays INTEGER,
   unitPrice FLOAT(10,2),
-  state INTEGER(1),
+  state INTEGER(1)
+  CHECK (state BETWEEN 0 AND 2),
   FOREIGN KEY(clientId) REFERENCES clients(id)
 );
 
