@@ -22,7 +22,7 @@ CREATE TABLE orders(
   designation VARCHAR(30),
   clientId integer,
   nbDays INTEGER,
-  unitPrice FLOAT(5,2),
+  unitPrice FLOAT(10,2),
   state INTEGER(1),
   FOREIGN KEY(clientId) REFERENCES clients(id)
 );
